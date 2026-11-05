@@ -7,80 +7,74 @@ export function PracticeAreas() {
     <section
       id="areas"
       aria-labelledby="areas-title"
-      className="scroll-mt-20 bg-cream py-16 md:py-24"
+      className="scroll-mt-20 border-y border-gold/10 bg-ink-soft py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-            <Reveal y={18}>
-              <span className="mb-4 flex items-center gap-4 font-clash text-[0.7rem] uppercase tracking-[0.25em] text-gold-deep">
-                <span
-                  aria-hidden="true"
-                  className="block h-px w-10 bg-gold/70"
-                />
-                Áreas de atuação
-              </span>
-              <h2
-                id="areas-title"
-                className="font-display text-3xl leading-tight text-ink-title md:text-5xl"
-              >
-                Onde posso <em className="text-gold-deep">atuar</em> ao seu lado
-              </h2>
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <Reveal y={16} className="lg:col-span-7">
+            <span className="mb-4 flex items-center gap-4 font-clash text-[0.68rem] uppercase tracking-[0.24em] text-gold">
+              <span aria-hidden="true" className="block h-px w-10 bg-gold/60" />
+              Áreas de atuação
+            </span>
+            <h2
+              id="areas-title"
+              className="max-w-xl font-display text-3xl leading-tight text-cream-text md:text-5xl"
+            >
+              Onde posso <em className="text-gold">atuar</em> ao seu lado
+            </h2>
+          </Reveal>
 
-              <p className="mt-6 max-w-sm text-[0.98rem] leading-relaxed text-ink-body">
-                Sete frentes de atuação, com o mesmo cuidado de sempre. Escolha
-                o assunto mais próximo da sua situação para falar diretamente
-                pelo WhatsApp.
-              </p>
-
-              <div className="mt-10 hidden items-end gap-4 lg:flex">
-                <span
-                  aria-hidden="true"
-                  className="font-display text-[5.5rem] font-semibold leading-none tracking-tight text-gold/25 md:text-[6.5rem]"
-                >
-                  07
-                </span>
-                <span className="mb-3 font-clash text-[0.6rem] uppercase leading-relaxed tracking-[0.2em] text-clay">
-                  áreas
-                  <br />
-                  de atuação
-                </span>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal y={24} className="lg:col-span-8">
-            <ol className="border-t border-line">
-              {practiceAreas.map((area, index) => (
-                <li key={area.id} className="border-b border-line">
-                  <a
-                    href={whatsappLink(area.message)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Falar no WhatsApp sobre ${area.title}`}
-                    className="group grid grid-cols-[2.5rem_1fr_auto] items-start gap-4 py-6 transition-colors duration-300 hover:bg-cream-muted/70 md:grid-cols-[3.5rem_1fr_auto] md:gap-6 md:py-7"
-                  >
-                    <span className="pt-1 font-quote text-xl italic leading-none text-gold-deep/80 md:text-2xl">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="block">
-                      <span className="block font-display text-xl text-ink-title transition-colors duration-300 group-hover:text-gold-deep md:text-2xl">
-                        {area.title}
-                      </span>
-                      <span className="mt-1.5 block max-w-xl text-[0.92rem] leading-relaxed text-ink-body">
-                        {area.description}
-                      </span>
-                    </span>
-                    <ArrowUpRight
-                      className="mt-1.5 h-4 w-4 shrink-0 text-gold-deep transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ol>
+          <Reveal y={16} delay={0.05} className="lg:col-span-4 lg:col-start-9">
+            <p className="max-w-sm text-[0.95rem] font-medium leading-relaxed text-warm-body">
+              Sete frentes de atuação, com o mesmo cuidado de sempre. Escolha o
+              assunto mais próximo da sua situação para falar diretamente pelo
+              WhatsApp.
+            </p>
           </Reveal>
         </div>
+
+        <Reveal
+          y={22}
+          delay={0.06}
+          className="mt-12 grid gap-x-12 border-b border-gold/15 md:grid-cols-2 lg:mt-14"
+        >
+          {practiceAreas.map((area, index) => (
+            <a
+              key={area.id}
+              href={whatsappLink(area.message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${area.title} — Falar sobre este tema pelo WhatsApp`}
+              className={`group border-t border-gold/15 py-7 ${
+                index === practiceAreas.length - 1 ? "md:col-span-2" : ""
+              }`}
+            >
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <h3 className="font-display text-[1.35rem] text-cream-text transition-colors duration-300 group-hover:text-gold md:text-[1.55rem]">
+                    {area.title}
+                  </h3>
+                  <p
+                    className={`mt-2 text-[0.92rem] leading-relaxed text-warm-body ${
+                      index === practiceAreas.length - 1
+                        ? "max-w-2xl"
+                        : "max-w-md"
+                    }`}
+                  >
+                    {area.description}
+                  </p>
+                  <span className="mt-4 inline-block font-clash text-[0.6rem] uppercase tracking-[0.18em] text-gold/80 transition-colors duration-300 group-hover:text-gold">
+                    Falar sobre este tema
+                  </span>
+                </div>
+                <ArrowUpRight
+                  className="mt-1 h-4 w-4 shrink-0 text-gold/50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold"
+                  aria-hidden="true"
+                />
+              </div>
+            </a>
+          ))}
+        </Reveal>
       </div>
     </section>
   );

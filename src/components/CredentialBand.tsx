@@ -4,29 +4,27 @@ import { Reveal } from "@/components/Reveal";
 export function CredentialBand() {
   return (
     <section
-      aria-label="Credenciais e informações do escritório"
-      className="border-y border-line-deep bg-cream py-10 md:py-12"
+      aria-label="Credenciais do escritório"
+      className="border-y border-gold/15 bg-ink-soft"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-6 lg:grid-cols-4 lg:divide-x lg:divide-line-deep lg:px-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-5 px-6 py-6 sm:grid-cols-4 lg:px-10">
         {credentials.map((item, index) => (
           <Reveal
             key={item.label}
-            delay={index * 0.07}
-            y={14}
-            className="px-4 text-center"
+            delay={index * 0.05}
+            y={10}
+            className="flex flex-col gap-1 sm:border-l sm:border-gold/20 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"
           >
-            <p className="font-clash text-[0.6rem] uppercase tracking-[0.22em] text-clay">
+            <span className="font-clash text-[0.52rem] uppercase tracking-[0.2em] text-stone">
               {item.label}
-            </p>
-            <p
-              className={`mt-2 font-display leading-tight ${
-                item.emphasis
-                  ? "text-3xl font-semibold text-gold-deep"
-                  : "text-lg font-medium text-ink-title md:text-xl"
+            </span>
+            <span
+              className={`font-clash text-[0.78rem] tracking-[0.04em] ${
+                item.emphasis ? "text-gold" : "text-cream-text/90"
               }`}
             >
               {item.value}
-            </p>
+            </span>
           </Reveal>
         ))}
       </div>

@@ -3,11 +3,11 @@
 Landing page de página única para o advogado Eduardo Santos (Itapoá/SC), com atuação em
 família, inventário, imobiliário, consumidor e criminal.
 
-A direção visual parte do site de referência `heitorleal.adv.br` — paleta escura com
-dourado, tipografia editorial e ritmo alternado entre faixas claras e escuras —, mas a
-composição foi redesenhada para ter identidade própria: retrato em arco com placa de
-inscrição, faixa de credenciais em vez de contadores, áreas de atuação em índice
-editorial numerado, diferenciais em grade de linhas e contato em duas colunas.
+A paleta escura com dourado e a tipografia editorial vieram do site de referência
+`heitorleal.adv.br`, mas a composição é própria: cabeçalho escuro, retrato em faixa
+sangrada, credenciais em linha, sobre em duas colunas com citação de página inteira,
+áreas em índice de duas colunas (sem cartões), faixa creme para os diferenciais,
+atendimento em linha do tempo vertical, contato em grade ampla e rodapé escuro.
 
 Nenhum texto, logotipo ou imagem do site de referência foi reutilizado.
 

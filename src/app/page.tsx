@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main id="conteudo">
+      <main id="conteudo" tabIndex={-1}>
         <Hero />
         <CredentialBand />
         <About />

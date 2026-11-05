@@ -1,72 +1,51 @@
-import { CalendarCheck, HeartHandshake, Lock, MessagesSquare } from "lucide-react";
 import { differentials, site } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
-
-const icons = {
-  heartHandshake: HeartHandshake,
-  lock: Lock,
-  messages: MessagesSquare,
-  calendarCheck: CalendarCheck,
-} as const;
 
 export function Differentials() {
   return (
     <section
       aria-labelledby="differentials-title"
-      className="bg-ink py-16 md:py-24"
+      className="bg-cream py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <Reveal className="mb-12 flex flex-col gap-5 md:mb-14 md:flex-row md:items-end md:justify-between">
-          <div>
-            <span className="mb-4 block font-clash text-[0.7rem] uppercase tracking-[0.25em] text-gold">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <Reveal y={16} className="lg:col-span-5">
+            <span className="mb-4 flex items-center gap-4 font-clash text-[0.68rem] uppercase tracking-[0.24em] text-gold-deep">
+              <span
+                aria-hidden="true"
+                className="block h-px w-10 bg-gold/70"
+              />
               {differentials.eyebrow}
             </span>
             <h2
               id="differentials-title"
-              className="font-display text-3xl leading-tight text-cream-text md:text-5xl"
+              className="max-w-md font-display text-3xl leading-tight text-ink-title md:text-5xl"
             >
               {differentials.titleLead}{" "}
-              <em className="text-gold">{differentials.titleAccent}</em>{" "}
+              <em className="text-gold-deep">{differentials.titleAccent}</em>{" "}
               {differentials.titleTail}
             </h2>
-          </div>
-          <p className="max-w-xs font-clash text-[0.62rem] uppercase leading-relaxed tracking-[0.16em] text-stone md:text-right">
-            {site.oab}
-            <br />
-            {site.location}
-          </p>
-        </Reveal>
+            <p className="mt-6 max-w-xs font-clash text-[0.6rem] uppercase leading-relaxed tracking-[0.18em] text-clay">
+              {site.oab}
+              <br />
+              {site.location}
+            </p>
+          </Reveal>
 
-        <div className="grid border-l border-t border-white/10 sm:grid-cols-2">
-          {differentials.items.map((item, index) => {
-            const Icon = icons[item.icon];
-            return (
-              <Reveal
-                key={item.title}
-                delay={index * 0.07}
-                y={22}
-                className="border-b border-r border-white/10"
-              >
-                <div className="group h-full p-6 transition-colors duration-300 hover:bg-white/[0.025] md:p-8">
-                  <div className="flex items-center justify-between">
-                    <span className="font-quote text-lg italic leading-none text-gold/70">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <Icon
-                      className="h-4 w-4 text-gold/70 transition-colors duration-300 group-hover:text-gold"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <h3 className="mt-7 font-display text-xl font-semibold text-cream-text">
+          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
+            {differentials.items.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.06} y={20}>
+                <div className="border-t border-gold-deep/25 pt-5">
+                  <h3 className="font-display text-xl font-semibold text-ink-title">
                     {item.title}
                   </h3>
-                  <p className="mt-2 max-w-sm text-[0.92rem] font-medium leading-relaxed text-warm-text">
+                  <p className="mt-2 max-w-xs text-[0.92rem] font-medium leading-relaxed text-ink-body">
                     {item.description}
                   </p>
                 </div>
               </Reveal>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

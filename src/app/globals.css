@@ -97,3 +97,19 @@
     display: none;
   }
 }
+
+
+@media (forced-colors: active) {
+  .text-gold-gradient {
+    background-image: none;
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
+  }
+}
+
+@media print {
+  body * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
