@@ -11,7 +11,7 @@ export function Process() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal className="mb-12 max-w-3xl md:mb-16">
           <span className="mb-4 flex items-center gap-4 font-clash text-[0.7rem] uppercase tracking-[0.25em] text-gold-deep">
-            <span aria-hidden="true" className="block h-px w-10 bg-gold/70" />
+            <span aria-hidden="true" className="block h-px w-10 bg-gold-deep/60" />
             {processSection.eyebrow}
           </span>
           <h2
@@ -27,7 +27,7 @@ export function Process() {
         <ol className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-5 lg:gap-8">
           <span
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 hidden h-px bg-linear-to-r from-gold/15 via-gold/45 to-gold/15 lg:block"
+            className="absolute inset-x-0 top-0 hidden h-px bg-linear-to-r from-gold-deep/10 via-gold-deep/40 to-gold-deep/10 lg:block"
           />
 
           {processSection.steps.map((step, index) => (
@@ -37,7 +37,7 @@ export function Process() {
             >
               <span
                 aria-hidden="true"
-                className="absolute -top-[3px] left-0 hidden h-1.5 w-1.5 bg-gold lg:block"
+                className="absolute -top-[3px] left-0 hidden h-1.5 w-1.5 bg-gold-deep lg:block"
               />
               <span className="font-quote text-3xl font-light italic leading-none text-gold-deep md:text-4xl">
                 {String(index + 1).padStart(2, "0")}

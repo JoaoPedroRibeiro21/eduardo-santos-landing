@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Menu, Phone, X, ArrowUpRight } from "lucide-react";
 import { navigation, site, whatsappLink } from "@/content/site";
@@ -38,6 +38,13 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const active = useActiveSection();
   const shouldReduceMotion = useReducedMotion();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  const closeMenu = useCallback(() => {
+    setOpen(false);
+    requestAnimationFrame(() => menuButtonRef.current?.focus());
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -48,14 +55,45 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+
+    const main = document.querySelector("main");
+    const footer = document.querySelector("footer");
+    const float = document.getElementById("whatsapp-float");
+    let frame = 0;
+
+    if (open) {
+      main?.setAttribute("inert", "");
+      footer?.setAttribute("inert", "");
+      float?.setAttribute("inert", "");
+      frame = requestAnimationFrame(() => {
+        overlayRef.current?.querySelector<HTMLElement>("a")?.focus();
+      });
+    }
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") closeMenu();
     };
     window.addEventListener("keydown", onKeyDown);
+
     return () => {
+      cancelAnimationFrame(frame);
       document.body.style.overflow = "";
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
+      float?.removeAttribute("inert");
       window.removeEventListener("keydown", onKeyDown);
     };
+  }, [open, closeMenu]);
+
+  useEffect(() => {
+    if (!open) return;
+    const media = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (media.matches) setOpen(false);
+    };
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
   }, [open]);
 
   return (
@@ -66,7 +104,7 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-6 lg:px-10">
-          <Logo onClick={() => setOpen(false)} />
+          <Logo onClick={closeMenu} />
 
           <nav aria-label="Navegação principal" className="hidden lg:block">
             <ul className="flex items-center gap-5 xl:gap-7">
@@ -86,7 +124,7 @@ export function Header() {
                       {item.label}
                       <span
                         aria-hidden="true"
-                        className={`absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300 ${
+                        className={`absolute -bottom-0.5 left-0 h-px bg-gold-deep transition-all duration-300 ${
                           isActive ? "w-full" : "w-0 group-hover:w-full"
                         }`}
                       />
@@ -109,7 +147,7 @@ export function Header() {
             </a>
             <a
               href="#contato"
-              className="inline-flex items-center border border-gold px-5 py-2.5 font-clash text-[0.65rem] uppercase tracking-[0.2em] text-gold-deep transition-all duration-300 hover:bg-gold hover:text-ink"
+              className="inline-flex items-center border border-gold-deep/60 px-5 py-2.5 font-clash text-[0.65rem] uppercase tracking-[0.2em] text-gold-deep transition-all duration-300 hover:bg-gold-deep hover:text-cream-text"
             >
               Fale com o advogado
             </a>
@@ -117,7 +155,8 @@ export function Header() {
 
           <button
             type="button"
-            onClick={() => setOpen((value) => !value)}
+            ref={menuButtonRef}
+            onClick={() => (open ? closeMenu() : setOpen(true))}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             aria-controls="menu-mobile"
@@ -137,6 +176,10 @@ export function Header() {
           <motion.div
             id="menu-mobile"
             key="menu-mobile"
+            ref={overlayRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu de navegação"
             initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={shouldReduceMotion ? undefined : { opacity: 0 }}
@@ -163,12 +206,12 @@ export function Header() {
                   >
                     <a
                       href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-5 font-display text-2xl text-ink-title"
+                      onClick={closeMenu}
+                      className="flex items-center justify-between py-5 font-display text-2xl text-ink-title transition-colors hover:text-gold-deep"
                     >
                       {item.label}
                       <ArrowUpRight
-                        className="h-5 w-5 text-gold"
+                        className="h-5 w-5 text-gold-deep"
                         aria-hidden="true"
                       />
                     </a>
@@ -182,7 +225,7 @@ export function Header() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-gold px-6 py-4 font-clash text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-gold-dark"
+                className="inline-flex items-center justify-center gap-3 bg-gold-deep px-6 py-4 font-clash text-xs uppercase tracking-[0.2em] text-cream-text transition-colors duration-300 hover:bg-jade"
               >
                 <WhatsAppIcon className="h-4 w-4" />
                 Falar com o advogado

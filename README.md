@@ -3,11 +3,10 @@
 Landing page de página única para o advogado Eduardo Santos (Itapoá/SC), com atuação em
 família, inventário, imobiliário, consumidor e criminal.
 
-A direção visual parte do site de referência `heitorleal.adv.br` — paleta escura com
-dourado, tipografia editorial e ritmo alternado entre faixas claras e escuras —, mas a
-composição foi redesenhada para ter identidade própria: retrato em arco com placa de
-inscrição, faixa de credenciais em vez de contadores, áreas de atuação em índice
-editorial numerado, diferenciais em grade de linhas e contato em duas colunas.
+A versão jade usa preto, linho natural (`#B7A99A`) e jade profundo (`#234345`), com
+Montserrat no texto e Cormorant SC nos títulos. A composição mantém retrato em arco,
+faixa de credenciais em jade, áreas em índice editorial, linha do tempo do atendimento
+e contato em duas colunas.
 
 Nenhum texto, logotipo ou imagem do site de referência foi reutilizado.
 
@@ -18,8 +17,7 @@ Nenhum texto, logotipo ou imagem do site de referência foi reutilizado.
 - Motion (`motion/react`) para animações
 - Lucide React para ícones
 - `next/image` para otimização das fotografias
-- Fontes locais (Clash Display e Satoshi) + Google Fonts via `next/font`
-  (Playfair Display e Cormorant Garamond)
+- Google Fonts via `next/font`: Montserrat (texto) e Cormorant SC (títulos)
 
 ## Como rodar
 
@@ -57,7 +55,6 @@ src/
     Footer.tsx          Rodapé
     WhatsAppFloat.tsx   Botão flutuante (aparece após a primeira dobra)
   content/site.ts       Todo o conteúdo, contatos e textos editáveis
-  fonts/                Clash Display e Satoshi (woff2)
 public/
   images/               Fotografias + imagem Open Graph
 scripts/

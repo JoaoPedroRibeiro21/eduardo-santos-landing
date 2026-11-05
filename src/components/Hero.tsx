@@ -11,14 +11,15 @@ const EASE = [0.25, 0.46, 0.45, 0.94] as const;
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
-  const fade = (delay: number, y = 22) =>
-    shouldReduceMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, delay, ease: EASE },
-        };
+  const fade = (delay: number, y = 22) => ({
+    initial: { opacity: 0, y },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: shouldReduceMotion ? 0 : 0.8,
+      delay: shouldReduceMotion ? 0 : delay,
+      ease: EASE,
+    },
+  });
 
   return (
     <section
@@ -35,7 +36,7 @@ export function Hero() {
         className="absolute inset-0 opacity-[0.035]"
         style={{
           backgroundImage:
-            "linear-gradient(#C9A84C 1px, transparent 1px), linear-gradient(90deg, #C9A84C 1px, transparent 1px)",
+            "linear-gradient(#B7A99A 1px, transparent 1px), linear-gradient(90deg, #B7A99A 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
@@ -123,13 +124,13 @@ export function Hero() {
           </div>
 
           <motion.div
-            {...(shouldReduceMotion
-              ? {}
-              : {
-                  initial: { opacity: 0, x: 36 },
-                  animate: { opacity: 1, x: 0 },
-                  transition: { duration: 0.9, delay: 0.2, ease: EASE },
-                })}
+            initial={{ opacity: 0, x: 36 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.9,
+              delay: shouldReduceMotion ? 0 : 0.2,
+              ease: EASE,
+            }}
             className="flex justify-center lg:col-span-2 lg:justify-end"
           >
             <div className="relative mb-6 w-[290px] sm:w-[360px] lg:w-full lg:max-w-[430px]">

@@ -35,7 +35,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Falar no WhatsApp com o advogado"
-              className="inline-flex h-9 w-9 items-center justify-center border border-line bg-cream-muted text-clay transition-all duration-300 hover:border-gold/50 hover:text-gold-deep"
+              className="inline-flex h-9 w-9 items-center justify-center border border-line bg-cream-muted text-clay transition-all duration-300 hover:border-gold-deep/50 hover:text-gold-deep"
             >
               <WhatsAppIcon className="h-4 w-4" />
             </a>
@@ -54,7 +54,7 @@ export function Footer() {
                   >
                     <span
                       aria-hidden="true"
-                      className="h-px w-3 bg-gold/40 transition-all duration-300 group-hover:w-5 group-hover:bg-gold-deep"
+                      className="h-px w-3 bg-gold-deep/40 transition-all duration-300 group-hover:w-5 group-hover:bg-gold-deep"
                     />
                     {item.label}
                   </a>
@@ -76,7 +76,7 @@ export function Footer() {
                   >
                     <span
                       aria-hidden="true"
-                      className="h-px w-3 bg-gold/40 transition-all duration-300 group-hover:w-5 group-hover:bg-gold-deep"
+                      className="h-px w-3 bg-gold-deep/40 transition-all duration-300 group-hover:w-5 group-hover:bg-gold-deep"
                     />
                     {area.title}
                   </a>
@@ -101,7 +101,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 text-gold" aria-hidden="true" />
+                <MapPin className="h-3.5 w-3.5 text-gold-deep" aria-hidden="true" />
                 {site.location}
               </li>
               <li className="text-clay">Atendimento presencial e on-line</li>

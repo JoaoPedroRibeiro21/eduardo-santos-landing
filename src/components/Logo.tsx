@@ -10,7 +10,7 @@ export function Logo({ onClick, tone = "dark" }: LogoProps) {
   const subtitle = tone === "dark" ? "text-clay" : "text-warm-body";
   const mark =
     tone === "dark"
-      ? "border-gold/60 text-gold-deep bg-cream"
+      ? "border-gold-deep/50 text-gold-deep bg-cream"
       : "border-gold/45 text-gold bg-ink";
 
   return (

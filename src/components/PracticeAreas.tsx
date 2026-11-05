@@ -16,7 +16,7 @@ export function PracticeAreas() {
               <span className="mb-4 flex items-center gap-4 font-clash text-[0.7rem] uppercase tracking-[0.25em] text-gold-deep">
                 <span
                   aria-hidden="true"
-                  className="block h-px w-10 bg-gold/70"
+                  className="block h-px w-10 bg-gold-deep/60"
                 />
                 Áreas de atuação
               </span>
@@ -36,7 +36,7 @@ export function PracticeAreas() {
               <div className="mt-10 hidden items-end gap-4 lg:flex">
                 <span
                   aria-hidden="true"
-                  className="font-display text-[5.5rem] font-semibold leading-none tracking-tight text-gold/25 md:text-[6.5rem]"
+                  className="font-display text-[5.5rem] font-semibold leading-none tracking-tight text-gold-deep/15 md:text-[6.5rem]"
                 >
                   07
                 </span>

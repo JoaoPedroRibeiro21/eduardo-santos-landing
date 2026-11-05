@@ -1,31 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Cormorant_Garamond } from "next/font/google";
-import { clashDisplay, satoshi } from "@/fonts/fonts";
+import { Montserrat, Cormorant_SC } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-montserrat",
   display: "swap",
-  style: ["normal", "italic"],
-  fallback: ["Georgia", "serif"],
+  fallback: ["Helvetica Neue", "Arial", "sans-serif"],
 });
 
-const cormorant = Cormorant_Garamond({
+const cormorantSc = Cormorant_SC({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-cormorant-sc",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700"],
   fallback: ["Georgia", "serif"],
 });
 
 const description =
-  "Advogado em Itapoá/SC com atuação em divórcio, guarda, pensão alimentícia, inventário, direito imobiliário, consumidor e criminal. Atendimento presencial e on-line, com orientação clara e sigilo profissional.";
+  "Advogado em Itapoá/SC: família, inventário, imobiliário, consumidor e criminal. Atendimento presencial e on-line, com orientação clara e sigilo.";
 
 /** Defina NEXT_PUBLIC_SITE_URL no deploy para canonical, Open Graph e JSON-LD absolutos. */
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || undefined;
 // Placeholder reservado (.example) — nunca resolve e deixa claro que falta configurar.
 const siteUrl = configuredUrl ?? "https://eduardosantos.example";
 
@@ -65,25 +62,27 @@ export const metadata: Metadata = {
     title: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
     description:
       "Atuação em família, inventário, imobiliário, consumidor e criminal. Atendimento presencial em Itapoá/SC e on-line.",
-    images: [
-      {
-        url: "/images/og-eduardo-santos.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Eduardo Santos — orientação jurídica com clareza para as decisões que importam",
-      },
-    ],
+    images: configuredUrl
+      ? [
+          {
+            url: "/images/og-eduardo-santos.jpg",
+            width: 1200,
+            height: 630,
+            alt: "Eduardo Santos — orientação jurídica com clareza para as decisões que importam",
+          },
+        ]
+      : undefined,
   },
   twitter: {
     card: "summary_large_image",
     title: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
     description,
-    images: ["/images/og-eduardo-santos.jpg"],
+    images: configuredUrl ? ["/images/og-eduardo-santos.jpg"] : undefined,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050508",
+  themeColor: "#234345",
   width: "device-width",
   initialScale: 1,
 };
@@ -123,7 +122,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${playfair.variable} ${cormorant.variable} ${clashDisplay.variable} ${satoshi.variable}`}
+      className={`${montserrat.variable} ${cormorantSc.variable}`}
     >
       <body className="bg-ink text-cream-text font-satoshi antialiased">
         <a

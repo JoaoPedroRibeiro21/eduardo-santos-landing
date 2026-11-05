@@ -1,37 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette extracted from the reference design */
-  --color-ink: #050508;
-  --color-ink-soft: #0c0e18;
-  --color-ink-card: #0f1120;
+  /*
+   * Paleta da versão jade.
+   * Os nomes antigos (gold/cream/ink) são mantidos como tokens de papel para
+   * não reescrever todos os componentes. A leitura atual é:
+   *   ink   → preto
+   *   cream → linho natural (superfícies claras)
+   *   gold  → linho (acento sobre preto)
+   *   gold-deep → jade profundo (acento sobre linho)
+   */
+  --color-jade: #234345;
+  --color-jade-deep: #18302f;
+  --color-jade-soft: #2e5254;
+  --color-linen: #b7a99a;
+  --color-linen-light: #cfc3b5;
+  --color-linen-deep: #a6978a;
+  --color-black: #000000;
+  --color-white: #ffffff;
 
-  --color-cream: #f5f0e8;
-  --color-cream-deep: #f2ede4;
-  --color-cream-muted: #ede8e0;
+  --color-ink: #000000;
+  --color-ink-soft: #0a1414;
+  --color-ink-card: #102122;
 
-  --color-line: #ddd7cc;
-  --color-line-deep: #d8d2c8;
+  --color-cream: #b7a99a;
+  --color-cream-deep: #b0a294;
+  --color-cream-muted: #c6b9aa;
 
-  --color-gold: #c9a84c;
-  --color-gold-dark: #b8973a;
-  --color-gold-light: #d4b05e;
-  --color-gold-deep: #8a6800;
-  --color-gold-text: #a07820;
+  --color-line: #8e8174;
+  --color-line-deep: #7a6e62;
 
-  --color-cream-text: #f2ede4;
-  --color-warm-text: #d8d0c2;
-  --color-warm-body: #c7bead;
-  --color-warm-muted: #786e64;
-  --color-ink-title: #1a1510;
-  --color-ink-body: #4a4035;
-  --color-clay: #6b6358;
-  --color-stone: #a09890;
+  --color-gold: #b7a99a;
+  --color-gold-dark: #a6978a;
+  --color-gold-light: #cfc3b5;
+  --color-gold-deep: #18302f;
+  --color-gold-text: #18302f;
 
-  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-clash: var(--font-clash-display), "Helvetica Neue", Arial, sans-serif;
-  --font-satoshi: var(--font-satoshi-face), system-ui, -apple-system, sans-serif;
-  --font-quote: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --color-cream-text: #ffffff;
+  --color-warm-text: #e2d9ce;
+  --color-warm-body: #b7a99a;
+  --color-warm-muted: #9a8f82;
+  --color-ink-title: #000000;
+  --color-ink-body: #141414;
+  --color-clay: #2e3a38;
+  --color-stone: #9a8f82;
+
+  --font-display: var(--font-cormorant-sc), Georgia, "Times New Roman", serif;
+  --font-clash: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+  --font-satoshi: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+  --font-quote: var(--font-cormorant-sc), Georgia, "Times New Roman", serif;
 
   --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -51,13 +68,14 @@
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-ink);
+    background-color: var(--color-jade);
+    color: var(--color-linen);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-linen);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-jade);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -76,7 +94,12 @@
 }
 
 @utility text-gold-gradient {
-  background-image: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #b8973a 100%);
+  background-image: linear-gradient(
+    135deg,
+    #cfc3b5 0%,
+    #b7a99a 50%,
+    #a6978a 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -84,11 +107,11 @@
 }
 
 @utility hairline-gold {
-  background-image: linear-gradient(90deg, #c9a84c, transparent);
+  background-image: linear-gradient(90deg, #b7a99a, transparent);
 }
 
 @utility hairline-gold-center {
-  background-image: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  background-image: linear-gradient(90deg, transparent, #b7a99a, transparent);
 }
 
 @utility no-scrollbar {

@@ -75,7 +75,7 @@ export function Contact() {
                   aria-label={`Falar no WhatsApp: ${option.label}`}
                   className="group flex items-center gap-3 border-b border-r border-white/10 px-4 py-5 transition-colors duration-300 hover:bg-white/[0.03] md:px-5"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-linen">
                     <WhatsAppIcon className="h-3.5 w-3.5" />
                   </span>
                   <span className="flex-1 font-satoshi text-[0.85rem] font-medium leading-snug text-cream-text">

@@ -22,6 +22,7 @@ export function WhatsAppFloat() {
       {visible && (
         <motion.a
           key="whatsapp-float"
+          id="whatsapp-float"
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
@@ -38,11 +39,11 @@ export function WhatsAppFloat() {
           <span className="pointer-events-none hidden translate-x-2 border border-line bg-cream px-3.5 py-2 font-clash text-[0.65rem] uppercase tracking-[0.14em] text-ink-body opacity-0 shadow-lg transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
             Fale com o advogado
           </span>
-          <span className="relative flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_rgba(37,211,102,0.35)] transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
+          <span className="relative flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full border border-linen/40 bg-jade text-white shadow-[0_10px_30px_rgba(35,67,69,0.35)] transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
             {!shouldReduceMotion && (
               <span
                 aria-hidden="true"
-                className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/35 [animation-duration:2.5s]"
+                className="absolute inset-0 animate-ping rounded-full bg-jade/35 [animation-duration:2.5s]"
               />
             )}
             <WhatsAppIcon className="relative h-7 w-7" />
