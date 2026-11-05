@@ -25,7 +25,7 @@ export function About() {
             <div className="relative aspect-4/5 w-full overflow-hidden bg-ink-soft">
               <Image
                 src="/images/eduardo-santos-atendimento.jpg"
-                alt="Eduardo Santos, advogado, segurando sua carteira da OAB"
+                alt="Eduardo dos Santos, advogado, segurando sua carteira da OAB"
                 fill
                 loading="lazy"
                 sizes="(max-width: 640px) 90vw, 460px"
