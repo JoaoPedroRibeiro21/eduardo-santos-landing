@@ -41,7 +41,7 @@ export function Hero() {
         >
           <Image
             src="/images/eduardo-santos-retrato.jpg"
-            alt="Retrato de Eduardo Santos, advogado inscrito na OAB/SC"
+            alt="Retrato de Eduardo dos Santos, advogado inscrito na OAB/SC"
             fill
             preload
             sizes="38vw"
@@ -173,7 +173,7 @@ export function Hero() {
             <div className="relative aspect-4/5 w-full max-w-[380px] overflow-hidden border-l border-gold/30 bg-ink-soft md:max-w-[440px]">
               <Image
                 src="/images/eduardo-santos-retrato.jpg"
-                alt="Retrato de Eduardo Santos, advogado inscrito na OAB/SC"
+                alt="Retrato de Eduardo dos Santos, advogado inscrito na OAB/SC"
                 fill
                 sizes="(max-width: 640px) 90vw, (max-width: 767px) 380px, 440px"
                 quality={90}

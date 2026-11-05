@@ -8,8 +8,8 @@
  */
 
 export const site = {
-  name: "Eduardo Santos",
-  brand: "Eduardo Santos Advocacia",
+  name: "Eduardo dos Santos",
+  brand: "Eduardo dos Santos Advocacia",
   specialty: "Advocacia",
   oab: "OAB/SC 78.883",
   oabShort: "OAB/SC",
@@ -54,7 +54,7 @@ export const about = {
   titleAccent: "escuta",
   titleTail: "e responsabilidade",
   paragraphs: [
-    "Eduardo Santos é advogado inscrito na OAB/SC sob o nº 78.883. Seu trabalho começa pela escuta atenta de cada história — porque nenhuma situação jurídica se repete.",
+    "Eduardo dos Santos é advogado inscrito na OAB/SC sob o nº 78.883. Seu trabalho começa pela escuta atenta de cada história — porque nenhuma situação jurídica se repete.",
     "Com atendimento em Itapoá/SC e também on-line, o escritório atua em direito de família, inventário, questões imobiliárias, relações de consumo e matéria criminal, orientando cada pessoa sobre documentos, prazos e possibilidades.",
   ],
   highlights: [
@@ -66,7 +66,7 @@ export const about = {
   cta: "Falar sobre o meu caso",
   quote:
     "Ouvir com atenção é o primeiro passo de qualquer orientação jurídica.",
-  quoteAuthor: "Eduardo Santos",
+  quoteAuthor: "Eduardo dos Santos",
 };
 
 export type PracticeArea = {
