@@ -22,6 +22,7 @@ export function WhatsAppFloat() {
       {visible && (
         <motion.a
           key="whatsapp-float"
+          id="whatsapp-float"
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"

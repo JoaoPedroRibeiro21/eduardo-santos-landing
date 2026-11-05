@@ -57,11 +57,13 @@ export function Header() {
 
     const main = document.querySelector("main");
     const footer = document.querySelector("footer");
+    const float = document.getElementById("whatsapp-float");
     let frame = 0;
 
     if (open) {
       main?.setAttribute("inert", "");
       footer?.setAttribute("inert", "");
+      float?.setAttribute("inert", "");
       frame = requestAnimationFrame(() => {
         overlayRef.current?.querySelector<HTMLElement>("a")?.focus();
       });
@@ -77,6 +79,7 @@ export function Header() {
       document.body.style.overflow = "";
       main?.removeAttribute("inert");
       footer?.removeAttribute("inert");
+      float?.removeAttribute("inert");
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [open, closeMenu]);

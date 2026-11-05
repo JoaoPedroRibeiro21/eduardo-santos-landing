@@ -11,14 +11,15 @@ const EASE = [0.25, 0.46, 0.45, 0.94] as const;
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
-  const fade = (delay: number, y = 22) =>
-    shouldReduceMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, delay, ease: EASE },
-        };
+  const fade = (delay: number, y = 22) => ({
+    initial: shouldReduceMotion ? false : { opacity: 0, y },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: shouldReduceMotion ? 0 : 0.8,
+      delay: shouldReduceMotion ? 0 : delay,
+      ease: EASE,
+    },
+  });
 
   return (
     <section
@@ -68,10 +69,10 @@ export function Hero() {
       {/* Fio vertical com a cidade, à esquerda */}
       <div
         aria-hidden="true"
-        className="absolute left-7 top-1/2 hidden -translate-y-1/2 -rotate-90 items-center gap-3 lg:flex"
+        className="absolute left-5 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-3 lg:flex"
       >
-        <span className="h-px w-10 bg-gold/40" />
-        <span className="whitespace-nowrap font-clash text-[0.55rem] uppercase tracking-[0.3em] text-stone">
+        <span className="h-10 w-px bg-gold/40" />
+        <span className="whitespace-nowrap font-clash text-[0.55rem] uppercase tracking-[0.3em] text-stone [writing-mode:vertical-rl]">
           Itapoá · Santa Catarina
         </span>
       </div>
@@ -96,7 +97,7 @@ export function Hero() {
                 {site.name} | {site.oab}
               </span>
               <span className="hidden sm:inline">
-                {site.name} · Advocacia de Família | {site.oab}
+                {site.name} · {site.specialty} | {site.oab}
               </span>
             </span>
           </motion.div>
@@ -176,10 +177,10 @@ export function Hero() {
                 aria-hidden="true"
                 className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-ink/70 to-transparent"
               />
-              <figcaption className="absolute bottom-4 left-4 font-clash text-[0.55rem] uppercase tracking-[0.18em] text-gold">
-                {site.oab}
-              </figcaption>
             </div>
+            <figcaption className="mt-3 font-clash text-[0.55rem] uppercase tracking-[0.18em] text-gold">
+              {site.oab}
+            </figcaption>
           </motion.figure>
         </div>
       </div>

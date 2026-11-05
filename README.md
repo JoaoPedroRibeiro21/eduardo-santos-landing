@@ -47,14 +47,17 @@ src/
     globals.css         Tokens de cor/tipografia e utilitários
   components/
     Header.tsx          Nav fixa + menu mobile + seção ativa
-    Hero.tsx            Primeira dobra com retrato em arco
+    Hero.tsx            Primeira dobra com retrato em faixa sangrada
     CredentialBand.tsx  Faixa de credenciais (OAB, áreas, base, modalidade)
-    About.tsx           Sobre o advogado com citação e destaques
-    PracticeAreas.tsx   Índice editorial das sete áreas
-    Differentials.tsx   Diferenciais em grade de linhas
-    Process.tsx         Etapas do atendimento
-    Contact.tsx         Contato em duas colunas + opções de WhatsApp
-    Footer.tsx          Rodapé
+    About.tsx           Sobre em duas colunas + citação de largura total
+    PracticeAreas.tsx   Índice de duas colunas das sete áreas
+    Differentials.tsx   Faixa creme com os compromissos do atendimento
+    Process.tsx         Etapas em linha do tempo vertical
+    Contact.tsx         Contato em grade ampla + número em destaque
+    Footer.tsx          Rodapé escuro
+    Logo.tsx            Assinatura tipográfica
+    Reveal.tsx          Revelação por scroll (respeita reduced motion)
+    WhatsAppIcon.tsx    Ícone da marca WhatsApp
     WhatsAppFloat.tsx   Botão flutuante (aparece após a primeira dobra)
   content/site.ts       Todo o conteúdo, contatos e textos editáveis
   fonts/                Clash Display e Satoshi (woff2)
@@ -63,6 +66,9 @@ public/
 scripts/
   generate-og.mjs       Gera a imagem de compartilhamento 1200×630
 ```
+
+A imagem de compartilhamento é regenerada com `npm run og` (requer `sharp`, já usado
+pelo Next no ambiente local).
 
 ## Conteúdo e contato
 

@@ -9,9 +9,7 @@
 
 export const site = {
   name: "Eduardo Santos",
-  firstName: "Eduardo",
   brand: "Eduardo Santos Advocacia",
-  role: "Advogado",
   specialty: "Advocacia",
   oab: "OAB/SC 78.883",
   oabShort: "OAB/SC",
@@ -144,25 +142,21 @@ export const differentials = {
   titleTail: "e reservado",
   items: [
     {
-      icon: "heartHandshake" as const,
       title: "Escuta e acolhimento",
       description:
         "Cada situação é recebida com atenção e respeito, no tempo necessário para ser compreendida.",
     },
     {
-      icon: "lock" as const,
       title: "Sigilo profissional",
       description:
         "As informações compartilhadas são tratadas com confidencialidade em todas as etapas.",
     },
     {
-      icon: "messages" as const,
       title: "Comunicação clara",
       description:
         "Explicações objetivas sobre documentos, prazos e os caminhos jurídicos possíveis.",
     },
     {
-      icon: "calendarCheck" as const,
       title: "Presença em cada etapa",
       description:
         "Você sabe o que acontece no seu caso e quais são os próximos passos a serem dados.",

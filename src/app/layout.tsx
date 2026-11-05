@@ -22,17 +22,17 @@ const cormorant = Cormorant_Garamond({
 });
 
 const description =
-  "Advogado em Itapoá/SC com atuação em divórcio, guarda, pensão alimentícia, inventário, direito imobiliário, consumidor e criminal. Atendimento presencial e on-line, com orientação clara e sigilo profissional.";
+  "Advogado em Itapoá/SC: família, inventário, imobiliário, consumidor e criminal. Atendimento presencial e on-line, com orientação clara e sigilo.";
 
 /** Defina NEXT_PUBLIC_SITE_URL no deploy para canonical, Open Graph e JSON-LD absolutos. */
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || undefined;
 // Placeholder reservado (.example) — nunca resolve e deixa claro que falta configurar.
 const siteUrl = configuredUrl ?? "https://eduardosantos.example";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
+    default: `Eduardo Santos | Advogado em Itapoá SC | ${site.oab}`,
     template: "%s | Eduardo Santos Advocacia",
   },
   description,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "advogado consumidor Itapoá",
     "advogado criminal Itapoá",
     "Eduardo Santos advogado",
-    "OAB/SC 78.883",
+    site.oab,
   ],
   authors: [{ name: site.name }],
   creator: site.name,
@@ -62,23 +62,25 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: configuredUrl ?? undefined,
     siteName: site.brand,
-    title: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
+    title: `Eduardo Santos | Advogado em Itapoá SC | ${site.oab}`,
     description:
       "Atuação em família, inventário, imobiliário, consumidor e criminal. Atendimento presencial em Itapoá/SC e on-line.",
-    images: [
-      {
-        url: "/images/og-eduardo-santos.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Eduardo Santos — orientação jurídica com clareza para as decisões que importam",
-      },
-    ],
+    images: configuredUrl
+      ? [
+          {
+            url: "/images/og-eduardo-santos.jpg",
+            width: 1200,
+            height: 630,
+            alt: "Eduardo Santos — orientação jurídica com clareza para as decisões que importam",
+          },
+        ]
+      : undefined,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
+    title: `Eduardo Santos | Advogado em Itapoá SC | ${site.oab}`,
     description,
-    images: ["/images/og-eduardo-santos.jpg"],
+    images: configuredUrl ? ["/images/og-eduardo-santos.jpg"] : undefined,
   },
 };
 
@@ -94,7 +96,7 @@ const structuredData = {
   name: "Eduardo Santos Advocacia",
   description,
   ...(configuredUrl ? { url: configuredUrl } : {}),
-  telephone: "+5547988942904",
+  telephone: `+${site.whatsapp.number}`,
   areaServed: [
     { "@type": "City", name: "Itapoá" },
     { "@type": "State", name: "Santa Catarina" },

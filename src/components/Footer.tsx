@@ -7,7 +7,7 @@ import {
 import { Logo } from "@/components/Logo";
 
 export function Footer() {
-  const year = 2026;
+  const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-gold/15 bg-ink">
@@ -38,7 +38,7 @@ export function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="font-clash text-[0.82rem] text-warm-body transition-colors duration-300 hover:text-gold"
+                    className="inline-flex min-h-6 items-center font-clash text-[0.82rem] text-warm-body transition-colors duration-300 hover:text-gold"
                   >
                     {item.label}
                   </a>
@@ -55,8 +55,8 @@ export function Footer() {
               {practiceAreas.map((area) => (
                 <li key={area.id}>
                   <a
-                    href="#areas"
-                    className="font-clash text-[0.82rem] text-warm-body transition-colors duration-300 hover:text-gold"
+                    href={`#${area.id}`}
+                    className="inline-flex min-h-6 items-center font-clash text-[0.82rem] text-warm-body transition-colors duration-300 hover:text-gold"
                   >
                     {area.title}
                   </a>
@@ -75,7 +75,7 @@ export function Footer() {
                   href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-300 hover:text-gold"
+                  className="inline-flex min-h-6 items-center transition-colors duration-300 hover:text-gold"
                 >
                   WhatsApp {site.whatsapp.display}
                 </a>

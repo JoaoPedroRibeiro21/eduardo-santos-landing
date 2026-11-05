@@ -15,7 +15,7 @@ export function CredentialBand() {
             y={10}
             className="flex flex-col gap-1 sm:border-l sm:border-gold/20 sm:pl-4 sm:first:border-l-0 sm:first:pl-0"
           >
-            <span className="font-clash text-[0.52rem] uppercase tracking-[0.2em] text-stone">
+            <span className="font-clash text-[0.64rem] uppercase tracking-[0.16em] text-stone">
               {item.label}
             </span>
             <span

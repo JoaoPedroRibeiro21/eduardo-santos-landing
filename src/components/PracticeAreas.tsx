@@ -33,22 +33,23 @@ export function PracticeAreas() {
           </Reveal>
         </div>
 
-        <Reveal
-          y={22}
-          delay={0.06}
-          className="mt-12 grid gap-x-12 border-b border-gold/15 md:grid-cols-2 lg:mt-14"
-        >
-          {practiceAreas.map((area, index) => (
-            <a
-              key={area.id}
-              href={whatsappLink(area.message)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${area.title} — Falar sobre este tema pelo WhatsApp`}
-              className={`group border-t border-gold/15 py-7 ${
-                index === practiceAreas.length - 1 ? "md:col-span-2" : ""
-              }`}
-            >
+        <Reveal y={22} delay={0.06} className="mt-12 lg:mt-14">
+          <ul className="grid gap-x-12 border-b border-gold/15 md:grid-cols-2">
+            {practiceAreas.map((area, index) => (
+              <li
+                key={area.id}
+                id={area.id}
+                className={
+                  index === practiceAreas.length - 1 ? "md:col-span-2" : ""
+                }
+              >
+                <a
+                  href={whatsappLink(area.message)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${area.title} — Falar sobre este tema pelo WhatsApp`}
+                  className="group block border-t border-gold/15 py-7"
+                >
               <div className="flex items-start justify-between gap-6">
                 <div>
                   <h3 className="font-display text-[1.35rem] text-cream-text transition-colors duration-300 group-hover:text-gold md:text-[1.55rem]">
@@ -71,9 +72,11 @@ export function PracticeAreas() {
                   className="mt-1 h-4 w-4 shrink-0 text-gold/50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold"
                   aria-hidden="true"
                 />
-              </div>
-            </a>
-          ))}
+                </div>
+                </a>
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </section>
