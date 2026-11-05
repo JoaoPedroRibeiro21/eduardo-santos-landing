@@ -29,8 +29,8 @@ const siteUrl = configuredUrl ?? "https://eduardosantos.example";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
-    template: "%s | Eduardo Santos Advocacia",
+    default: "Eduardo dos Santos | Advogado em Itapoá SC | OAB/SC 78.883",
+    template: "%s | Eduardo dos Santos Advocacia",
   },
   description,
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "advogado imobiliário Itapoá",
     "advogado consumidor Itapoá",
     "advogado criminal Itapoá",
-    "Eduardo Santos advogado",
+    "Eduardo dos Santos advogado",
     "OAB/SC 78.883",
   ],
   authors: [{ name: site.name }],
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: configuredUrl ?? undefined,
     siteName: site.brand,
-    title: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
+    title: "Eduardo dos Santos | Advogado em Itapoá SC | OAB/SC 78.883",
     description:
       "Atuação em família, inventário, imobiliário, consumidor e criminal. Atendimento presencial em Itapoá/SC e on-line.",
     images: [
@@ -68,13 +68,13 @@ export const metadata: Metadata = {
         url: "/images/og-eduardo-santos.jpg",
         width: 1200,
         height: 630,
-        alt: "Eduardo Santos — Direito de família, com tempo e clareza",
+        alt: "Eduardo dos Santos — Direito de família, com tempo e clareza",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eduardo Santos | Advogado em Itapoá SC | OAB/SC 78.883",
+    title: "Eduardo dos Santos | Advogado em Itapoá SC | OAB/SC 78.883",
     description,
     images: ["/images/og-eduardo-santos.jpg"],
   },
@@ -89,7 +89,7 @@ export const viewport: Viewport = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Attorney",
-  name: "Eduardo Santos Advocacia",
+  name: "Eduardo dos Santos Advocacia",
   description,
   ...(configuredUrl ? { url: configuredUrl } : {}),
   telephone: "+5547988942904",

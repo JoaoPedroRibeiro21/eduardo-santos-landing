@@ -17,7 +17,7 @@ export function About() {
                 <div className="relative aspect-4/5 w-full overflow-hidden bg-paper-deep">
                   <Image
                     src="/images/eduardo-santos-atendimento.jpg"
-                    alt="Eduardo Santos, advogado, segurando sua carteira da OAB"
+                    alt="Eduardo dos Santos, advogado, segurando sua carteira da OAB"
                     fill
                     loading="lazy"
                     sizes="(max-width: 640px) 90vw, 500px"
@@ -27,7 +27,7 @@ export function About() {
                 </div>
               </div>
               <figcaption className="mt-3 font-sans text-[0.72rem] text-graphite">
-                Eduardo Santos com a carteira da OAB. Itapoá, Santa Catarina.
+                Eduardo dos Santos com a carteira da OAB. Itapoá, Santa Catarina.
               </figcaption>
             </figure>
           </Reveal>

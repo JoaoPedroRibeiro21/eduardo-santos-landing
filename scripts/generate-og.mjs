@@ -17,7 +17,7 @@ const overlay = Buffer.from(`
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
   <rect x="32" y="32" width="${W - 64}" height="${H - 64}" fill="none" stroke="#d5d0c2"/>
 
-  <text x="72" y="100" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="3.2" fill="#5d6358">EDUARDO SANTOS · ADVOCACIA EM ITAPOÁ/SC</text>
+  <text x="72" y="100" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="3.2" fill="#5d6358">EDUARDO DOS SANTOS · ADVOCACIA EM ITAPOÁ/SC</text>
 
   <text font-family="Georgia, Times New Roman, serif" font-size="54" fill="#121812">
     <tspan x="72" y="190">Direito de família,</tspan>

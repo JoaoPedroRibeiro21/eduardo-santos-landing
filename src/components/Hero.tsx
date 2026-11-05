@@ -117,7 +117,7 @@ export function Hero() {
               >
                 <Image
                   src="/images/eduardo-santos-retrato.jpg"
-                  alt="Retrato de Eduardo Santos, advogado inscrito na OAB/SC"
+                  alt="Retrato de Eduardo dos Santos, advogado inscrito na OAB/SC"
                   fill
                   priority
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 430px, 430px"
@@ -128,7 +128,7 @@ export function Hero() {
 
               <figcaption className="mt-4 flex items-center gap-4 font-sans text-[0.72rem] text-graphite">
                 <span className="h-px w-8 shrink-0 bg-ink/25" aria-hidden="true" />
-                Eduardo Santos, advogado. {site.oab}.
+                Eduardo dos Santos, advogado. {site.oab}.
               </figcaption>
             </motion.figure>
           </div>
