@@ -14,7 +14,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-28 pt-16 sm:pb-16 lg:px-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo tone="light" />
+            <Logo tone="light" imageClassName="h-8" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-warm-body">
               Advocacia em Itapoá/SC, com atendimento presencial e on-line,
               escuta atenta e orientação clara.
