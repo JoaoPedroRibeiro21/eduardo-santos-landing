@@ -1,32 +1,35 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type LogoProps = {
   onClick?: () => void;
-  tone?: "ink" | "cream";
+  tone?: "dark" | "light";
+  imageClassName?: string;
 };
 
-export function Logo({ onClick, tone = "ink" }: LogoProps) {
+export function Logo({
+  onClick,
+  tone = "dark",
+  imageClassName = "h-8 w-auto xl:h-10",
+}: LogoProps) {
+  const src =
+    tone === "light" ? "/images/logo-light.png" : "/images/logo-dark.png";
+
   return (
     <Link
       href="#inicio"
       onClick={onClick}
-      aria-label="Eduardo Santos Advocacia — ir para o início"
-      className="group flex shrink-0 flex-col leading-none"
+      aria-label="Eduardo dos Santos Advocacia — ir para o início"
+      className="inline-flex shrink-0 items-center"
     >
-      <span
-        className={`font-display text-[1.32rem] tracking-[-0.015em] ${
-          tone === "ink" ? "text-ink" : "text-cream"
-        }`}
-      >
-        Eduardo Santos
-      </span>
-      <span
-        className={`mt-1 font-sans text-[0.62rem] tracking-[0.08em] ${
-          tone === "ink" ? "text-graphite" : "text-cream-muted"
-        }`}
-      >
-        Advocacia em Itapoá/SC
-      </span>
+      <Image
+        src={src}
+        alt=""
+        width={566}
+        height={83}
+        sizes="(max-width: 640px) 200px, (max-width: 1024px) 218px, 273px"
+        className={imageClassName}
+      />
     </Link>
   );
 }
