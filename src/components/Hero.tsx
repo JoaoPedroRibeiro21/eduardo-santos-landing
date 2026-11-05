@@ -69,7 +69,7 @@ export function Hero() {
             <motion.h1
               {...fade(0.15, 30)}
               id="hero-title"
-              className="font-display text-[2.2rem] font-bold leading-[1.08] text-cream-text sm:text-5xl md:text-[3.35rem] lg:text-[3.7rem]"
+              className="font-display text-[2.2rem] font-bold leading-[1.08] text-cream-text sm:text-5xl md:text-[3.35rem] lg:text-[3.4rem] xl:text-[3.7rem]"
             >
               Orientação jurídica com{" "}
               <em className="text-gold-gradient italic">clareza</em> para as
@@ -88,13 +88,13 @@ export function Hero() {
 
             <motion.div
               {...fade(0.4)}
-              className="mt-2 flex flex-col gap-4 sm:flex-row"
+              className="mt-2 flex flex-col gap-3 sm:flex-row"
             >
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 bg-gold px-6 py-4 font-clash text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-gold-dark sm:px-8 sm:text-xs"
+                className="group inline-flex shrink-0 items-center justify-center gap-3 whitespace-nowrap bg-gold px-6 py-4 font-clash text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-gold-dark sm:px-7 sm:text-xs"
               >
                 Falar com o advogado
                 <ArrowRight
@@ -104,7 +104,7 @@ export function Hero() {
               </a>
               <Link
                 href="#areas"
-                className="inline-flex items-center justify-center border border-gold/40 px-6 py-4 font-clash text-[0.68rem] uppercase tracking-[0.2em] text-cream-text transition-colors duration-300 hover:border-gold hover:text-gold sm:px-8 sm:text-xs"
+                className="inline-flex shrink-0 items-center justify-center whitespace-nowrap border border-gold/40 px-6 py-4 font-clash text-[0.68rem] uppercase tracking-[0.2em] text-cream-text transition-colors duration-300 hover:border-gold hover:text-gold sm:px-7 sm:text-xs"
               >
                 Áreas de atuação
               </Link>

@@ -107,7 +107,7 @@ export function Header() {
           <Logo onClick={closeMenu} />
 
           <nav aria-label="Navegação principal" className="hidden lg:block">
-            <ul className="flex items-center gap-5 xl:gap-7">
+            <ul className="flex items-center gap-4 xl:gap-7">
               {navigation.map((item) => {
                 const isActive = active === item.href;
                 return (

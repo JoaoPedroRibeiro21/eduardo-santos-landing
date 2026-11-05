@@ -52,7 +52,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   ...(configuredUrl ? { alternates: { canonical: "/" } } : {}),
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "512x512" }],
+    apple: [{ url: "/favicon.png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
