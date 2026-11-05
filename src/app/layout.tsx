@@ -19,10 +19,10 @@ const archivo = Archivo({
 });
 
 const description =
-  "Advogado em Itapoá/SC com atuação em divórcio, guarda, pensão alimentícia, inventário, direito imobiliário, consumidor e criminal. Atendimento presencial e on-line, com orientação clara e sigilo profissional.";
+  "Advogado em Itapoá/SC: família, inventário, imobiliário, consumidor e criminal. Atendimento presencial e on-line, com orientação clara e sigilo.";
 
 /** Defina NEXT_PUBLIC_SITE_URL no deploy para canonical, Open Graph e JSON-LD absolutos. */
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || undefined;
 // Placeholder reservado (.example) — nunca resolve e deixa claro que falta configurar.
 const siteUrl = configuredUrl ?? "https://eduardosantos.example";
 

@@ -10,14 +10,15 @@ const EASE = [0.22, 0.61, 0.36, 1] as const;
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
-  const fade = (delay: number, y = 16) =>
-    shouldReduceMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, delay, ease: EASE },
-        };
+  const fade = (delay: number, y = 16) => ({
+    initial: { opacity: 0, y },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: shouldReduceMotion ? 0 : 0.7,
+      delay: shouldReduceMotion ? 0 : delay,
+      ease: EASE,
+    },
+  });
 
   return (
     <section
