@@ -1,6 +1,5 @@
 import { quoteSection } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
-import { Seal } from "@/components/Seal";
 
 export function QuoteBand() {
   return (
@@ -31,13 +30,6 @@ export function QuoteBand() {
             </blockquote>
           </Reveal>
 
-          <Reveal
-            y={14}
-            delay={0.08}
-            className="hidden lg:col-span-2 lg:flex lg:justify-end"
-          >
-            <Seal id="quote-seal" className="h-24 w-24" />
-          </Reveal>
         </div>
       </div>
     </section>

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { hero, site, whatsappLink } from "@/content/site";
-import { Seal } from "@/components/Seal";
 
 const EASE = [0.22, 0.61, 0.36, 1] as const;
 
@@ -126,10 +125,6 @@ export function Hero() {
                   className="object-cover object-top"
                 />
               </motion.div>
-
-              <div className="absolute -left-4 bottom-12 rounded-full bg-paper p-1.5 sm:-left-6">
-                <Seal id="hero-seal" className="h-[82px] w-[82px] sm:h-24 sm:w-24" />
-              </div>
 
               <figcaption className="mt-4 flex items-center gap-4 font-sans text-[0.72rem] text-graphite">
                 <span className="h-px w-8 shrink-0 bg-ink/25" aria-hidden="true" />

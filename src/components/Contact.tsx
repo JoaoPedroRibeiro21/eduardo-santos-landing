@@ -1,6 +1,5 @@
 import { contact, site, whatsappLink } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
-import { Seal } from "@/components/Seal";
 
 export function Contact() {
   return (
@@ -9,17 +8,6 @@ export function Contact() {
       aria-labelledby="contact-title"
       className="relative scroll-mt-20 overflow-hidden bg-wax py-20 md:py-28"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-24 -right-16 hidden lg:block"
-      >
-        <Seal
-          id="contact-seal"
-          tone="cream"
-          className="h-[340px] w-[340px] opacity-[0.09]"
-        />
-      </div>
-
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal y={18} className="lg:col-span-6">
