@@ -9,9 +9,9 @@ export function WhatsAppFloat() {
   const [visible, setVisible] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  // Aparece após a primeira dobra para não cobrir os CTAs do hero.
+  // Aparece depois da primeira dobra para não cobrir os CTAs do hero.
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 360);
+    const onScroll = () => setVisible(window.scrollY > 380);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,23 +26,20 @@ export function WhatsAppFloat() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Falar com o advogado pelo WhatsApp ${site.whatsapp.display}`}
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
-          transition={{
-            duration: 0.4,
-            ease: [0.25, 0.46, 0.45, 0.94],
-          }}
+          exit={shouldReduceMotion ? undefined : { opacity: 0, y: 14 }}
+          transition={{ duration: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
           className="group fixed bottom-4 right-4 z-30 flex items-center gap-3 sm:bottom-6 sm:right-6"
         >
-          <span className="pointer-events-none hidden translate-x-2 border border-line bg-cream px-3.5 py-2 font-clash text-[0.65rem] uppercase tracking-[0.14em] text-ink-body opacity-0 shadow-lg transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
-            Fale com o advogado
+          <span className="pointer-events-none hidden translate-x-2 border border-paper-line bg-paper px-3.5 py-2 font-sans text-[0.72rem] text-ink opacity-0 shadow-sm transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
+            Falar no WhatsApp
           </span>
-          <span className="relative flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_rgba(37,211,102,0.35)] transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
+          <span className="relative flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-forest text-cream shadow-[0_8px_24px_rgba(18,24,18,0.22)] transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14">
             {!shouldReduceMotion && (
               <span
                 aria-hidden="true"
-                className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/35 [animation-duration:2.5s]"
+                className="absolute inset-0 animate-ping rounded-full bg-forest/30 [animation-duration:2.8s]"
               />
             )}
             <WhatsAppIcon className="relative h-7 w-7" />

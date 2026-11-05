@@ -10,45 +10,36 @@ const W = 1200;
 const H = 630;
 
 const portrait = await sharp(source)
-  .resize({ width: 520, height: H, fit: "cover", position: "top" })
+  .resize({ width: 460, height: 542, fit: "cover", position: "top" })
   .toBuffer();
 
 const overlay = Buffer.from(`
 <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="blend" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#050508" stop-opacity="1"/>
-      <stop offset="18%" stop-color="#050508" stop-opacity="0.88"/>
-      <stop offset="45%" stop-color="#050508" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#050508" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#c9a84c"/>
-      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+  <rect x="32" y="32" width="${W - 64}" height="${H - 64}" fill="none" stroke="#d5d0c2"/>
 
-  <rect x="0" width="680" height="${H}" fill="#050508"/>
-  <rect x="600" width="600" height="${H}" fill="url(#blend)"/>
-  <rect x="24" y="24" width="${W - 48}" height="${H - 48}" fill="none" stroke="#c9a84c" stroke-opacity="0.22"/>
+  <text x="72" y="100" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="3.2" fill="#5d6358">EDUARDO SANTOS · ADVOCACIA EM ITAPOÁ/SC</text>
 
-  <text x="72" y="104" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="4" fill="#c9a84c">EDUARDO SANTOS · ADVOCACIA EM ITAPOÁ/SC</text>
-
-  <text font-family="Georgia, Times New Roman, serif" font-size="46" font-weight="bold" fill="#f2ede4">
-    <tspan x="72" y="186">Orientação jurídica</tspan>
-    <tspan x="72" y="244">com <tspan font-style="italic" fill="#c9a84c">clareza</tspan> para as</tspan>
-    <tspan x="72" y="302">decisões que importam.</tspan>
+  <text font-family="Georgia, Times New Roman, serif" font-size="54" fill="#121812">
+    <tspan x="72" y="190">Direito de família,</tspan>
+    <tspan x="72" y="252" font-style="italic" fill="#8f2f26">com tempo e clareza.</tspan>
   </text>
 
-  <rect x="72" y="352" width="90" height="1" fill="url(#gold)"/>
+  <rect x="72" y="300" width="84" height="1.5" fill="#8f2f26"/>
 
-  <text x="72" y="396" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="1.2" fill="#a89f8c">Família · Inventário · Imobiliário</text>
-  <text x="72" y="420" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="1.2" fill="#a89f8c">Consumidor · Criminal</text>
+  <text x="72" y="348" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#5d6358">Divórcio, guarda, pensão, inventário,</text>
+  <text x="72" y="372" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#5d6358">imóveis, consumo e criminal.</text>
 
-  <text x="72" y="540" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="2" fill="#d8d0c2">ITAPOÁ · SC</text>
-  <text x="72" y="567" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="1.2" fill="#8a8175">Atendimento presencial e on-line</text>
+  <text x="72" y="552" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="2" fill="#121812">OAB/SC 78.883</text>
+  <text x="72" y="576" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#5d6358">Itapoá, Santa Catarina</text>
 
-  <text x="380" y="540" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="2.2" fill="#8a8175">OAB/SC 78.883</text>
+  <rect x="688" y="44" width="460" height="542" fill="none" stroke="#121812" stroke-opacity="0.15"/>
+
+  <g transform="translate(626, 438)">
+    <circle cx="55" cy="55" r="55" fill="#8f2f26"/>
+    <circle cx="55" cy="55" r="48" fill="none" stroke="#f2efe6" stroke-opacity="0.45"/>
+    <text x="55" y="60" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-style="italic" font-size="26" fill="#f2efe6">ES</text>
+    <text x="55" y="78" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" letter-spacing="1" fill="#f2efe6">OAB/SC 78.883</text>
+  </g>
 </svg>
 `);
 
@@ -57,11 +48,11 @@ await sharp({
     width: W,
     height: H,
     channels: 3,
-    background: "#050508",
+    background: "#f2efe6",
   },
 })
   .composite([
-    { input: portrait, left: 680, top: 0 },
+    { input: portrait, left: 688, top: 44 },
     { input: overlay, left: 0, top: 0 },
   ])
   .jpeg({ quality: 90, mozjpeg: true })

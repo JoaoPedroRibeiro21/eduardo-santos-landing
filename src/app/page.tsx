@@ -1,9 +1,8 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { CredentialBand } from "@/components/CredentialBand";
 import { About } from "@/components/About";
 import { PracticeAreas } from "@/components/PracticeAreas";
-import { Differentials } from "@/components/Differentials";
+import { QuoteBand } from "@/components/QuoteBand";
 import { Process } from "@/components/Process";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -15,10 +14,9 @@ export default function HomePage() {
       <Header />
       <main id="conteudo">
         <Hero />
-        <CredentialBand />
         <About />
         <PracticeAreas />
-        <Differentials />
+        <QuoteBand />
         <Process />
         <Contact />
       </main>

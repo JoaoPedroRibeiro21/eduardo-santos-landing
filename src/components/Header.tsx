@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Menu, Phone, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navigation, site, whatsappLink } from "@/content/site";
 import { Logo } from "@/components/Logo";
-import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 function useActiveSection() {
   const [active, setActive] = useState<string>("#inicio");
@@ -34,17 +33,9 @@ function useActiveSection() {
 }
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const active = useActiveSection();
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -60,16 +51,12 @@ export function Header() {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 border-b border-line bg-cream/95 backdrop-blur-md transition-shadow duration-300 ${
-          scrolled ? "shadow-[0_12px_40px_rgba(5,5,8,0.08)]" : "shadow-none"
-        }`}
-      >
-        <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-6 lg:px-10">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-t-2 border-paper-line border-t-ink bg-paper/95 backdrop-blur-md">
+        <div className="mx-auto flex h-[74px] max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-10">
           <Logo onClick={() => setOpen(false)} />
 
           <nav aria-label="Navegação principal" className="hidden lg:block">
-            <ul className="flex items-center gap-5 xl:gap-7">
+            <ul className="flex items-center gap-7">
               {navigation.map((item) => {
                 const isActive = active === item.href;
                 return (
@@ -77,16 +64,16 @@ export function Header() {
                     <a
                       href={item.href}
                       aria-current={isActive ? "location" : undefined}
-                      className={`group relative inline-flex whitespace-nowrap py-2 font-clash text-[0.68rem] uppercase tracking-[0.16em] transition-colors duration-300 xl:text-[0.7rem] xl:tracking-[0.18em] ${
+                      className={`group relative inline-flex py-2 font-sans text-[0.84rem] transition-colors duration-200 ${
                         isActive
-                          ? "text-gold-deep"
-                          : "text-ink-body hover:text-ink-title"
+                          ? "text-wax"
+                          : "text-ink/70 hover:text-ink"
                       }`}
                     >
                       {item.label}
                       <span
                         aria-hidden="true"
-                        className={`absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300 ${
+                        className={`absolute -bottom-0.5 left-0 h-px bg-wax transition-all duration-300 ${
                           isActive ? "w-full" : "w-0 group-hover:w-full"
                         }`}
                       />
@@ -98,20 +85,16 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-5 lg:flex">
+            <span className="hidden font-sans text-[0.7rem] tracking-[0.04em] text-graphite xl:inline">
+              {site.oab}
+            </span>
             <a
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 font-clash text-xs tracking-wider text-clay transition-colors duration-300 hover:text-gold-deep xl:flex"
+              className="inline-flex items-center bg-wax px-5 py-2.5 font-sans text-[0.82rem] text-cream transition-colors duration-200 hover:bg-wax-dark"
             >
-              <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-              <span>{site.whatsapp.display}</span>
-            </a>
-            <a
-              href="#contato"
-              className="inline-flex items-center border border-gold px-5 py-2.5 font-clash text-[0.65rem] uppercase tracking-[0.2em] text-gold-deep transition-all duration-300 hover:bg-gold hover:text-ink"
-            >
-              Fale com o advogado
+              Conversar
             </a>
           </div>
 
@@ -121,7 +104,7 @@ export function Header() {
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             aria-controls="menu-mobile"
-            className="relative z-60 -mr-2 inline-flex h-11 w-11 items-center justify-center text-ink-title lg:hidden"
+            className="relative z-60 -mr-2 inline-flex h-11 w-11 items-center justify-center text-ink lg:hidden"
           >
             {open ? (
               <X className="h-5 w-5" aria-hidden="true" />
@@ -140,58 +123,47 @@ export function Header() {
             initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={shouldReduceMotion ? undefined : { opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-cream px-6 pb-10 pt-24 lg:hidden"
+            transition={{ duration: 0.22 }}
+            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-paper px-6 pb-10 pt-24 lg:hidden"
           >
             <nav aria-label="Navegação móvel" className="flex-1">
               <ul className="flex flex-col">
                 {navigation.map((item, index) => (
                   <motion.li
                     key={item.href}
-                    initial={
-                      shouldReduceMotion
-                        ? false
-                        : { opacity: 0, y: 14 }
-                    }
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.4,
-                      delay: shouldReduceMotion ? 0 : 0.05 * index,
-                      ease: [0.25, 0.46, 0.45, 0.94],
+                      duration: 0.35,
+                      delay: shouldReduceMotion ? 0 : 0.04 * index,
+                      ease: [0.22, 0.61, 0.36, 1],
                     }}
-                    className="border-b border-line"
+                    className="border-b border-paper-line"
                   >
                     <a
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-5 font-display text-2xl text-ink-title"
+                      className="block py-5 font-display text-3xl text-ink transition-colors hover:text-wax"
                     >
                       {item.label}
-                      <ArrowUpRight
-                        className="h-5 w-5 text-gold"
-                        aria-hidden="true"
-                      />
                     </a>
                   </motion.li>
                 ))}
               </ul>
             </nav>
 
-            <div className="mt-8 flex flex-col gap-5">
+            <div className="mt-8 flex flex-col gap-4">
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-gold px-6 py-4 font-clash text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-gold-dark"
+                className="inline-flex items-center justify-center bg-wax px-6 py-4 font-sans text-sm text-cream transition-colors hover:bg-wax-dark"
               >
-                <WhatsAppIcon className="h-4 w-4" />
-                Falar com o advogado
+                Conversar pelo WhatsApp
               </a>
-              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 font-clash text-[0.62rem] uppercase tracking-[0.16em] text-clay">
+              <div className="flex flex-wrap items-center justify-between gap-2 font-sans text-[0.72rem] text-graphite">
                 <span>{site.whatsapp.display}</span>
-                <span className="whitespace-nowrap">
-                  {site.oab} · {site.location}
-                </span>
+                <span>{site.oab}</span>
               </div>
             </div>
           </motion.div>

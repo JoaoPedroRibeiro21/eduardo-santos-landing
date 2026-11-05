@@ -1,24 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Cormorant_Garamond } from "next/font/google";
-import { clashDisplay, satoshi } from "@/fonts/fonts";
+import { Newsreader, Archivo } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-newsreader",
   display: "swap",
   style: ["normal", "italic"],
   fallback: ["Georgia", "serif"],
 });
 
-const cormorant = Cormorant_Garamond({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-archivo",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  fallback: ["Georgia", "serif"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const description =
@@ -70,7 +67,7 @@ export const metadata: Metadata = {
         url: "/images/og-eduardo-santos.jpg",
         width: 1200,
         height: 630,
-        alt: "Eduardo Santos — orientação jurídica com clareza para as decisões que importam",
+        alt: "Eduardo Santos — Direito de família, com tempo e clareza",
       },
     ],
   },
@@ -83,7 +80,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050508",
+  themeColor: "#f2efe6",
   width: "device-width",
   initialScale: 1,
 };
@@ -123,12 +120,12 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${playfair.variable} ${cormorant.variable} ${clashDisplay.variable} ${satoshi.variable}`}
+      className={`${newsreader.variable} ${archivo.variable}`}
     >
-      <body className="bg-ink text-cream-text font-satoshi antialiased">
+      <body className="bg-paper font-body text-ink antialiased">
         <a
           href="#conteudo"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-gold focus:px-5 focus:py-3 focus:text-xs focus:font-clash focus:uppercase focus:tracking-[0.2em] focus:text-ink"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-wax focus:px-5 focus:py-3 font-sans text-sm text-cream"
         >
           Ir para o conteúdo
         </a>

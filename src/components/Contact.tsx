@@ -1,71 +1,54 @@
-import { ArrowRight, MapPin } from "lucide-react";
 import { contact, site, whatsappLink } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
-import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { Seal } from "@/components/Seal";
 
 export function Contact() {
   return (
     <section
       id="contato"
       aria-labelledby="contact-title"
-      className="relative scroll-mt-20 overflow-hidden border-y border-gold/10 bg-ink-soft py-20 md:py-24"
+      className="relative scroll-mt-20 overflow-hidden bg-wax py-20 md:py-28"
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-linear-to-r from-ink via-ink-soft to-ink opacity-60"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-20 bottom-0 h-[380px] w-[380px] rounded-full bg-gold/[0.04] blur-[100px]"
-      />
+        className="pointer-events-none absolute -bottom-24 -right-16 hidden lg:block"
+      >
+        <Seal
+          id="contact-seal"
+          tone="cream"
+          className="h-[340px] w-[340px] opacity-[0.09]"
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal y={20} className="lg:col-span-5">
-            <span className="mb-4 flex items-center gap-4 font-clash text-[0.7rem] uppercase tracking-[0.25em] text-gold">
-              <span aria-hidden="true" className="block h-px w-10 bg-gold/60" />
-              {contact.eyebrow}
-            </span>
-
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <Reveal y={18} className="lg:col-span-6">
+            <p className="font-sans text-[0.78rem] text-cream/70">
+              {contact.label}
+            </p>
             <h2
               id="contact-title"
-              className="font-display text-3xl leading-snug text-cream-text md:text-5xl"
+              className="mt-4 max-w-lg font-display text-[2.4rem] leading-[1.02] tracking-[-0.02em] text-cream md:text-[3.6rem]"
             >
-              {contact.titleLead}{" "}
-              <span className="text-gold-gradient italic">
-                {contact.titleAccent}
-              </span>
-              {contact.titleTail}
+              {contact.title}
             </h2>
-
-            <p className="mt-5 max-w-md text-base font-medium leading-relaxed text-warm-text">
+            <p className="mt-6 max-w-md text-[1rem] leading-relaxed text-cream/80">
               {contact.description}
             </p>
-
-            <div className="mt-10 border-t border-gold/20 pt-6">
-              <p className="font-clash text-[0.6rem] uppercase tracking-[0.22em] text-stone">
-                WhatsApp direto
-              </p>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-block font-display text-2xl text-gold transition-colors duration-300 hover:text-gold-light md:text-3xl"
-              >
-                {site.whatsapp.display}
-              </a>
-              <p className="mt-4 flex items-start gap-2 text-[0.78rem] leading-relaxed text-stone">
-                <MapPin
-                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold/70"
-                  aria-hidden="true"
-                />
-                {contact.note}
-              </p>
-            </div>
           </Reveal>
 
-          <Reveal y={24} delay={0.08} className="lg:col-span-7">
-            <div className="grid border-l border-t border-white/10 sm:grid-cols-2">
+          <Reveal y={18} delay={0.06} className="lg:col-span-5 lg:col-start-8">
+            <p className="font-sans text-[0.72rem] text-cream/70">WhatsApp</p>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block font-display text-[2rem] leading-tight text-cream md:text-[2.5rem]"
+            >
+              {site.whatsapp.display}
+            </a>
+
+            <div className="mt-8 grid gap-x-8 sm:grid-cols-2">
               {contact.options.map((option) => (
                 <a
                   key={option.label}
@@ -73,21 +56,16 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Falar no WhatsApp: ${option.label}`}
-                  className="group flex items-center gap-3 border-b border-r border-white/10 px-4 py-5 transition-colors duration-300 hover:bg-white/[0.03] md:px-5"
+                  className="border-b border-cream/25 py-3 font-sans text-[0.85rem] leading-snug text-cream/90 transition-colors duration-200 hover:text-cream"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
-                    <WhatsAppIcon className="h-3.5 w-3.5" />
-                  </span>
-                  <span className="flex-1 font-satoshi text-[0.85rem] font-medium leading-snug text-cream-text">
-                    {option.label}
-                  </span>
-                  <ArrowRight
-                    className="h-3.5 w-3.5 shrink-0 text-gold transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
+                  {option.label}
                 </a>
               ))}
             </div>
+
+            <p className="mt-6 max-w-sm text-[0.76rem] leading-relaxed text-cream/65">
+              {contact.note}
+            </p>
           </Reveal>
         </div>
       </div>

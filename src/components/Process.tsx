@@ -1,4 +1,4 @@
-import { processSection } from "@/content/site";
+import { processSection, whatsappLink } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
 
 export function Process() {
@@ -6,53 +6,54 @@ export function Process() {
     <section
       id="atendimento"
       aria-labelledby="process-title"
-      className="scroll-mt-20 bg-cream py-16 md:py-24"
+      className="scroll-mt-20 bg-paper-deep py-16 md:py-24"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <Reveal className="mb-12 max-w-3xl md:mb-16">
-          <span className="mb-4 flex items-center gap-4 font-clash text-[0.7rem] uppercase tracking-[0.25em] text-gold-deep">
-            <span aria-hidden="true" className="block h-px w-10 bg-gold/70" />
-            {processSection.eyebrow}
-          </span>
-          <h2
-            id="process-title"
-            className="font-display text-3xl leading-tight text-ink-title md:text-5xl"
-          >
-            {processSection.titleLead}{" "}
-            <em className="text-gold-deep">{processSection.titleAccent}</em>{" "}
-            {processSection.titleTail}
-          </h2>
-        </Reveal>
-
-        <ol className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-5 lg:gap-8">
-          <span
-            aria-hidden="true"
-            className="absolute inset-x-0 top-0 hidden h-px bg-linear-to-r from-gold/15 via-gold/45 to-gold/15 lg:block"
-          />
-
-          {processSection.steps.map((step, index) => (
-            <li
-              key={step.title}
-              className="relative grid grid-cols-[2.75rem_1fr] gap-4 border-b border-line py-6 lg:block lg:border-0 lg:py-0 lg:pt-7"
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <Reveal y={16} className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+            <p className="font-sans text-[0.78rem] text-wax">
+              {processSection.label}
+            </p>
+            <h2
+              id="process-title"
+              className="mt-4 font-display text-[2.2rem] leading-[1.03] tracking-[-0.02em] text-ink md:text-[3rem]"
             >
-              <span
-                aria-hidden="true"
-                className="absolute -top-[3px] left-0 hidden h-1.5 w-1.5 bg-gold lg:block"
-              />
-              <span className="font-quote text-3xl font-light italic leading-none text-gold-deep md:text-4xl">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div className="lg:mt-5">
-                <h3 className="mb-1.5 font-display text-lg text-ink-title">
-                  {step.title}
-                </h3>
-                <p className="max-w-[15rem] text-[0.9rem] leading-relaxed text-ink-body">
-                  {step.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+              {processSection.title}
+            </h2>
+            <p className="mt-5 max-w-sm text-[0.98rem] leading-relaxed text-graphite">
+              {processSection.description}
+            </p>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline mt-6 inline-block font-sans text-[0.82rem] text-wax"
+            >
+              Começar pelo WhatsApp
+            </a>
+          </Reveal>
+
+          <ol className="border-t border-ink/15 lg:col-span-7 lg:col-start-6">
+            {processSection.steps.map((step, index) => (
+              <li
+                key={step.title}
+                className="grid grid-cols-[2.75rem_1fr] gap-4 border-b border-ink/15 py-6 md:grid-cols-[4rem_1fr] md:gap-6 md:py-7"
+              >
+                  <span className="font-display text-[1.6rem] italic leading-none text-wax md:text-[1.8rem]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-[1.3rem] leading-tight text-ink md:text-[1.45rem]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1.5 max-w-lg text-[0.94rem] leading-relaxed text-graphite">
+                      {step.description}
+                    </p>
+                  </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
