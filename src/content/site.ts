@@ -51,16 +51,16 @@ export const hero = {
 };
 
 export const about = {
-  label: "Sobre",
-  titleLead: "Antes de qualquer estratégia,",
+  label: "Sobre mim",
+  titleLead: "Meu compromisso é",
   titleAccent: "escutar",
-  titleTail: ".",
+  titleTail: "antes de orientar.",
   paragraphs: [
-    "Eduardo dos Santos é advogado inscrito na OAB/SC sob o nº 78.883. O trabalho começa pela escuta: entender o que está acontecendo, o que já foi tentado e o que precisa ser resolvido primeiro.",
-    "Com atendimento em Itapoá/SC e também on-line, o escritório acompanha cada caso de perto — explicando documentos, prazos e alternativas em linguagem direta, sem prometer o que não depende de nós.",
+    "Sou Eduardo dos Santos, advogado inscrito na OAB/SC sob o nº 78.883. Atuo em Direito de Família — divórcio, guarda e pensão — e também em inventário, questões imobiliárias, relações de consumo e defesa criminal.",
+    "Se você está diante de uma decisão importante — sobre a sua família, o seu patrimônio ou a sua defesa —, meu trabalho é ouvir o seu caso, explicar os caminhos possíveis com clareza e acompanhar você em cada etapa, sem termos complicados e sem prometer o que não depende de mim.",
+    "Atendo em Itapoá/SC e também on-line, com hora marcada. A primeira conversa serve para entender o seu momento e você decidir, com informação, como seguir.",
   ],
-  quote:
-    "Ouvir com atenção é o primeiro passo de qualquer orientação jurídica.",
+  quote: "Antes de falar em estratégia, eu prefiro ouvir.",
   quoteAuthor: "Eduardo dos Santos",
   cta: "Conversar sobre o meu caso",
 };
