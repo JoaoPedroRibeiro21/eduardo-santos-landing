@@ -12,7 +12,7 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   const fade = (delay: number, y = 22) => ({
-    initial: shouldReduceMotion ? false : { opacity: 0, y },
+    initial: { opacity: 0, y },
     animate: { opacity: 1, y: 0 },
     transition: {
       duration: shouldReduceMotion ? 0 : 0.8,
@@ -30,11 +30,13 @@ export function Hero() {
       {/* Faixa fotográfica sangrada, exclusiva do desktop */}
       <div className="absolute bottom-0 right-0 top-[80px] hidden w-[38%] lg:block">
         <motion.div
-          initial={
-            shouldReduceMotion ? false : { clipPath: "inset(0 0 100% 0)" }
-          }
+          initial={{ clipPath: "inset(0 0 100% 0)" }}
           animate={{ clipPath: "inset(0 0 0% 0)" }}
-          transition={{ duration: 1.1, delay: 0.15, ease: EASE }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.1,
+            delay: shouldReduceMotion ? 0 : 0.15,
+            ease: EASE,
+          }}
           className="absolute inset-0"
         >
           <Image
@@ -104,9 +106,13 @@ export function Hero() {
 
           <motion.h1
             id="hero-title"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.12, ease: EASE }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.9,
+              delay: shouldReduceMotion ? 0 : 0.12,
+              ease: EASE,
+            }}
             className="mt-7 font-display text-[2.2rem] font-bold leading-[1.06] text-cream-text sm:text-5xl md:text-[3.3rem] lg:text-[3.7rem]"
           >
             Orientação jurídica com{" "}
