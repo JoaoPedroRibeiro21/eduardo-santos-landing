@@ -141,7 +141,7 @@ export function Hero() {
               <div className="relative aspect-3/4 overflow-hidden rounded-t-full bg-ink-soft">
                 <Image
                   src="/images/eduardo-santos-retrato.jpg"
-                  alt="Retrato de Eduardo Santos, advogado inscrito na OAB/SC"
+                  alt="Retrato de Eduardo dos Santos, advogado inscrito na OAB/SC"
                   fill
                   priority
                   sizes="(max-width: 640px) 290px, (max-width: 1024px) 360px, 430px"

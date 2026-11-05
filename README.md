@@ -1,6 +1,6 @@
-# Eduardo Santos — Advocacia
+# Eduardo dos Santos — Advocacia
 
-Landing page de página única para o advogado Eduardo Santos (Itapoá/SC), com atuação em
+Landing page de página única para o advogado Eduardo dos Santos (Itapoá/SC), com atuação em
 família, inventário, imobiliário, consumidor e criminal.
 
 A versão jade usa preto, linho natural (`#B7A99A`) e jade profundo (`#234345`), com

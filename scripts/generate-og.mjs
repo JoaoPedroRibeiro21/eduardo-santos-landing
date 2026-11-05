@@ -33,7 +33,7 @@ const overlay = Buffer.from(`
   <rect x="678" y="0" width="2" height="${H}" fill="#234345"/>
   <rect x="24" y="24" width="${W - 48}" height="${H - 48}" fill="none" stroke="#B7A99A" stroke-opacity="0.22"/>
 
-  <text x="72" y="104" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="4" fill="#B7A99A">EDUARDO SANTOS · ADVOCACIA EM ITAPOÁ/SC</text>
+  <text x="72" y="104" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" letter-spacing="4" fill="#B7A99A">EDUARDO DOS SANTOS · ADVOCACIA EM ITAPOÁ/SC</text>
 
   <text font-family="Georgia, Times New Roman, serif" font-size="46" font-weight="bold" fill="#FFFFFF">
     <tspan x="72" y="186">Orientação jurídica</tspan>
