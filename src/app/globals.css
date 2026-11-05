@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette extracted from the reference design */
+  --color-ink: #050508;
+  --color-ink-soft: #0c0e18;
+  --color-ink-card: #0f1120;
+
+  --color-cream: #f5f0e8;
+  --color-cream-deep: #f2ede4;
+  --color-cream-muted: #ede8e0;
+
+  --color-line: #ddd7cc;
+  --color-line-deep: #d8d2c8;
+
+  --color-gold: #c9a84c;
+  --color-gold-dark: #b8973a;
+  --color-gold-light: #d4b05e;
+  --color-gold-deep: #8a6800;
+  --color-gold-text: #a07820;
+
+  --color-cream-text: #f2ede4;
+  --color-warm-text: #d8d0c2;
+  --color-warm-body: #c7bead;
+  --color-warm-muted: #786e64;
+  --color-ink-title: #1a1510;
+  --color-ink-body: #4a4035;
+  --color-clay: #6b6358;
+  --color-stone: #a09890;
+
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-clash: var(--font-clash-display), "Helvetica Neue", Arial, sans-serif;
+  --font-satoshi: var(--font-satoshi-face), system-ui, -apple-system, sans-serif;
+  --font-quote: var(--font-cormorant), Georgia, "Times New Roman", serif;
+
+  --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-cream-text);
+    font-family: var(--font-satoshi);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility text-gold-gradient {
+  background-image: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #b8973a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility hairline-gold {
+  background-image: linear-gradient(90deg, #c9a84c, transparent);
+}
+
+@utility hairline-gold-center {
+  background-image: linear-gradient(90deg, transparent, #c9a84c, transparent);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
